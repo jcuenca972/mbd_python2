@@ -3,11 +3,12 @@ import streamlit as st
 class GeneralView:
 
     def __init__(self):
+        self._container = None
         self._main_container = None
-        st.session_state.prediction = ""
 
-    def init_container(self):
-        self._main_container = st.container()
+    def init_container(self, general_container: st):
+        general_container.empty()
+        self._main_container = general_container.container()
 
     def write_titles(self, title: str, instructions: str):
         with self._main_container:
@@ -36,11 +37,6 @@ class GeneralView:
 
         return tuple(input_numbers)
 
-    def update_prediction_value(self, msg: str):
-        st.session_state.prediction = msg
-        self.write_prediction()
-
-    def write_prediction(self):
+    def plotly_show(self, fig):
         with self._main_container:
-            st.markdown(f"<h5 style='text-align: center;'>{st.session_state.prediction}</h5>",
-                        unsafe_allow_html=True)
+            st.plotly_chart(fig, use_container_width=True)
