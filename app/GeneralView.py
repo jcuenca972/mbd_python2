@@ -3,11 +3,9 @@ import streamlit as st
 class GeneralView:
 
     def __init__(self):
-        self._container = None
         self._main_container = None
 
     def init_container(self, general_container: st):
-        general_container.empty()
         self._main_container = general_container.container()
 
     def write_titles(self, title: str, instructions: str):
@@ -21,7 +19,6 @@ class GeneralView:
             for name in input_names:
                 number = st.number_input(name, min_value=0)
                 input_numbers.append(number)
-
         return tuple(input_numbers)
 
     def write_binary_select_inputs(self, *input_names):
