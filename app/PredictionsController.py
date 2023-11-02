@@ -7,7 +7,6 @@ class PredictionsController:
         self._view = view
         self._model = model
         self._value = None
-        self._value2 = None
 
     def show(self, container):
         self._view.init_container(container)
