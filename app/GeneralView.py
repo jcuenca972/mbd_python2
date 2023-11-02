@@ -37,3 +37,7 @@ class GeneralView:
     def plotly_show(self, fig):
         with self._main_container:
             st.plotly_chart(fig, use_container_width=True)
+
+    def write_text(self, text):
+        with self._main_container:
+            st.write(text)

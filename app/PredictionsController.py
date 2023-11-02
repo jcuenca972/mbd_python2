@@ -12,7 +12,8 @@ class PredictionsController:
     def show(self, container):
         self._view.init_container(container)
         self._view.write_titles("Predictions", "Waiting for ML Algorithms")
-        self._value, self._value2 = self._view.write_number_inputs("Test Number", "Test Number 2")
+        self._value = self._view.write_number_inputs("Test Number")[0]
+        self._view.write_text(f"You insert {self._value}")
 
 
 
