@@ -36,6 +36,26 @@ class EDAModel:
         fig_season.update_layout(title="Bike Rentals by Season", xaxis_title="Season", yaxis_title="Total Rentals")
         return fig_season
 
+    def rentals_by_hour_weather(self):
+        grouped_data = self._bike_data.groupby(['hr', 'weathersit'])['cnt'].sum().reset_index()
+        pivot_data = grouped_data.pivot(index='hr', columns='weathersit', values='cnt').fillna(0)
+        fig = px.bar(pivot_data,
+                     x=pivot_data.index,
+                     y=pivot_data.columns,
+                     labels={'value': 'Total Rentals'},
+                     title="Bike Rentals by Hour and Weather Situation")
+        return fig
+
+    def rentals_by_hour_season(self):
+        grouped_data = self._bike_data.groupby(['hr', 'season'])['cnt'].sum().reset_index()
+        pivot_data = grouped_data.pivot(index='hr', columns='season', values='cnt').fillna(0)
+        fig = px.bar(pivot_data,
+                     x=pivot_data.index,
+                     y=pivot_data.columns,
+                     labels={'value': 'Total Rentals'},
+                     title="Bike Rentals by Hour and Season")
+        return fig
+
     @classmethod
     def _code_to_season(cls, code):
         if code == 1:

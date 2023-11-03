@@ -22,3 +22,7 @@ class EDAController:
             return self._model.rentals_weather()
         elif eda_type == EDATypes.RENTALS_SEASON:
             return self._model.rentals_by_season()
+        elif eda_type == EDATypes.RENTALS_HOUR_WEATHER:
+            return self._model.rentals_by_hour_weather()
+        elif eda_type == EDATypes.RENTALS_HOUR_SEASON:
+            return  self._model.rentals_by_hour_season()
