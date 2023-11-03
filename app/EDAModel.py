@@ -14,26 +14,26 @@ class EDAModel:
     def rentals_over_time(self):
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=self._bike_data.index, y=self._bike_data["cnt"], mode="lines"))
-        fig.update_layout(title="Bike Rentals Over Time", xaxis_title="Date", yaxis_title="Total Rentals")
+        fig.update_layout(title="", xaxis_title="Date", yaxis_title="Total Rentals")
         return fig
 
     def rentals_by_hour(self):
         fig = px.box(self._bike_data, x="hr", y="cnt")
-        fig.update_layout(title="Bike Rentals by Hour of the Day", xaxis_title="Hour of the Day",
+        fig.update_layout(title="", xaxis_title="Hour of the Day",
                           yaxis_title="Total Rentals")
         return fig
 
     def rentals_weather(self):
         fig_weather = go.Figure()
         fig_weather.add_trace(go.Box(x=self._bike_data["weathersit"], y=self._bike_data["cnt"]))
-        fig_weather.update_layout(title="Bike Rentals by Weather Situation", xaxis_title="Weather Situation",
+        fig_weather.update_layout(title="", xaxis_title="Weather Situation",
                                   yaxis_title="Total Rentals")
         return fig_weather
 
     def rentals_by_season(self):
         fig_season = go.Figure()
         fig_season.add_trace(go.Box(x=self._bike_data["season"], y=self._bike_data["cnt"]))
-        fig_season.update_layout(title="Bike Rentals by Season", xaxis_title="Season", yaxis_title="Total Rentals")
+        fig_season.update_layout(title="", xaxis_title="Season", yaxis_title="Total Rentals")
         return fig_season
 
     def rentals_by_hour_weather(self):
@@ -43,7 +43,7 @@ class EDAModel:
                      x=pivot_data.index,
                      y=pivot_data.columns,
                      labels={'value': 'Total Rentals'},
-                     title="Bike Rentals by Hour and Weather Situation")
+                     title="")
         return fig
 
     def rentals_by_hour_season(self):
@@ -53,7 +53,7 @@ class EDAModel:
                      x=pivot_data.index,
                      y=pivot_data.columns,
                      labels={'value': 'Total Rentals'},
-                     title="Bike Rentals by Hour and Season")
+                     title="")
         return fig
 
     @classmethod
