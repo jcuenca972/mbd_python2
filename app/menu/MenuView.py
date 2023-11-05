@@ -19,7 +19,7 @@ class MenuView:
         self._container = st.empty()
         self._radio_key = "radio_key"
         self._ml_controller = ml_controller
-        self._ml_title = "Model Description"
+        self._ml_title = "Model Creation"
 
     def show(self):
         st.sidebar.image(self._logo)

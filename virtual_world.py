@@ -7,6 +7,7 @@ from app.eda.EDAModel import EDAModel
 from app.predictions.PredictionsModel import PredictionsModel
 from app.ml_description.MLView import MLView
 from app.ml_description.MLController import MLController
+from app.ml_description.MLModel import MLModel
 
 # Creation of the App
 if __name__ == "__main__":
@@ -20,7 +21,8 @@ if __name__ == "__main__":
 
     # Create ML Description
     ml_view = MLView()
-    ml_controller = MLController(ml_view)
+    ml_model = MLModel()
+    ml_controller = MLController(ml_view, ml_model)
 
     # Create ML Objects
     predictions_model = PredictionsModel()
