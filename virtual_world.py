@@ -2,9 +2,9 @@ from app.menu.MenuView import MenuView
 from app.GeneralView import GeneralView
 from app.menu.MenuController import MenuController
 from app.eda.EDAController import EDAController
-from app.predictions.PredictionsController import PredictionsController
+from app.simulator.SimulatorController import SimulatorController
 from app.eda.EDAModel import EDAModel
-from app.predictions.PredictionsModel import PredictionsModel
+from app.simulator.SimulatorModel import SimulatorModel
 from app.ml_description.MLView import MLView
 from app.ml_description.MLController import MLController
 from app.ml_description.MLModel import MLModel
@@ -25,9 +25,9 @@ if __name__ == "__main__":
     ml_controller = MLController(ml_view, ml_model)
 
     # Create ML Objects
-    predictions_model = PredictionsModel()
+    predictions_model = SimulatorModel()
     # Manage GUI Elements and ML operations
-    predictions_controller = PredictionsController(view, predictions_model)
+    predictions_controller = SimulatorController(view, predictions_model)
 
     # Create GUI Menu and open screens
     menu_view = MenuView(eda_controller, predictions_controller, ml_controller)

@@ -1,14 +1,14 @@
 import streamlit as st
 from app.data.EDATypes import EDATypes
 from app.eda.EDAController import EDAController
-from app.predictions.PredictionsController import PredictionsController
+from app.simulator.SimulatorController import SimulatorController
 from app.ml_description.MLController import MLController
 
 class MenuView:
 
     _eda_charts = dict()
 
-    def __init__(self, eda_controller: EDAController, predictions_controller: PredictionsController,
+    def __init__(self, eda_controller: EDAController, predictions_controller: SimulatorController,
                  ml_controller: MLController):
         self._radio_placeholder = None
         self._eda_controller = eda_controller

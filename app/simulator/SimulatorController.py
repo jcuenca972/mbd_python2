@@ -1,9 +1,9 @@
 from app.GeneralView import GeneralView
-from app.predictions.PredictionsModel import PredictionsModel
+from app.simulator.SimulatorModel import SimulatorModel
 
-class PredictionsController:
+class SimulatorController:
 
-    def __init__(self, view: GeneralView, model: PredictionsModel):
+    def __init__(self, view: GeneralView, model: SimulatorModel):
         self._view = view
         self._model = model
         self._value = None
