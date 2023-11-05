@@ -16,4 +16,16 @@ class MLController:
                                        self._model.get_daylight_code(),
                                        self._model.get_correlation_daylight())
         self._view.show_title("Model Description")
-        self._view.show_model_highlights(self._model.get_pycaret_info())
+        self._view.show_model_highlights(self._model.get_pycaret_info(),
+                                         self._model.get_metrics_info())
+        self._view.show_model_creation(self._model.get_target_info(),
+                                       self._model.get_cnt_models(),
+                                       self._model.get_cnt_error(),
+                                       self._model.get_cnt_metrics(),
+                                       self._model.get_casual_models(),
+                                       self._model.get_casual_error(),
+                                       self._model.get_casual_metrics(),
+                                       self._model.get_registered_models(),
+                                       self._model.get_registered_error(),
+                                       self._model.get_registered_metrics())
+        self._view.show_software_architecture(self._model.get_software_architecture())

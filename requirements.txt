@@ -5,3 +5,4 @@ plotly
 streamlit
 astral
 pycaret[full]
+Pillow

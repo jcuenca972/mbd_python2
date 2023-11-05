@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 
 class MLView:
 
@@ -28,10 +29,13 @@ class MLView:
             st.header("Correlation Heatmap of Bike Rental Dataset After Daylight")
             st.pyplot(correlation_daylight)
 
-    def show_model_highlights(self, links):
+    def show_model_highlights(self, links_pycaret, links_metrics):
         with self._main_container:
             st.header("Framework")
-        self._show_pycaret_support(links)
+        self._show_pycaret_support(links_pycaret)
+        with self._main_container:
+            st.header("Metrics")
+        self._show_metrics_support(links_metrics)
 
 
     def _show_pycaret_support(self, links):
@@ -46,7 +50,35 @@ class MLView:
             Additionaly, University of Sfax integred it in a system to predict positive cases of waterborne diseases ([Tunisia]({links['Tunisia']})).
             """)
 
+    def _show_metrics_support(self, links):
+        with self._main_container:
+            st.markdown(f"""
+            After checking similar projects[[1]({links["1"]}), [2]({links["2"]}), [3]({links["3"]})], we decide to use the following metrics to compute the models performance: R^2, MAE and RMSE
+            """)
 
+    def show_model_creation(self, targets, cnt_models, cnt_error, cnt_metrics,
+                            casual_models, casual_error, casual_metrics,
+                            registered_models, registered_error, registered_metrics):
+        with self._main_container:
+            st.header("Regression Targets")
+            st.write(targets)
+            st.header("Model for 'cnt'")
+            st.write(cnt_models)
+            st.image(Image.open(cnt_error), caption="CNT Error Graph")
+            st.write("Test Results")
+            st.write(cnt_metrics)
+            st.header("Model for 'casual'")
+            st.write(casual_models)
+            st.image(Image.open(casual_error), caption="Casual Error Graph")
+            st.write("Test Results")
+            st.write(casual_metrics)
+            st.header("Model for 'registered'")
+            st.write(registered_models)
+            st.image(Image.open(registered_error), caption="Registered Error Graph")
+            st.write("Test Results")
+            st.write(registered_metrics)
 
-
-
+    def show_software_architecture(self, img):
+        with self._main_container:
+            st.header("Software Architecture")
+            st.image(Image.open(img), caption="")

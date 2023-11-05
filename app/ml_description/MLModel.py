@@ -74,4 +74,44 @@ class MLModel:
         return {"Indonesia": "https://ieeexplore.ieee.org/document/10291605",
                 "Taiwan": "https://ieeexplore.ieee.org/document/10100285",
                 "Tunisia": "https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-022-02092-1"
-                }
+        }
+
+    def get_metrics_info(self):
+        return {
+            "1": "https://www.sciencedirect.com/science/article/abs/pii/S0140366419318997",
+            "2": "https://link.springer.com/chapter/10.1007/978-3-030-94751-4_25",
+            "3": "https://arxiv.org/pdf/2108.00858.pdf"
+        }
+
+    def get_target_info(self):
+        return pd.read_csv("app/data/target.csv")
+
+    def get_cnt_models(self):
+        return pd.read_csv("app/data/cnt_models.csv")
+
+    def get_cnt_error(self):
+        return "app/data/cnt_error.png"
+
+    def get_cnt_metrics(self):
+        return pd.read_csv("app/data/cnt_metrics.csv")
+
+    def get_casual_models(self):
+        return pd.read_csv("app/data/casual_models.csv")
+
+    def get_casual_error(self):
+        return "app/data/casual_error.png"
+
+    def get_casual_metrics(self):
+        return pd.read_csv("app/data/casual_metrics.csv")
+
+    def get_registered_models(self):
+        return pd.read_csv("app/data/registered_models.csv")
+
+    def get_registered_error(self):
+        return "app/data/registered_error.png"
+
+    def get_registered_metrics(self):
+        return pd.read_csv("app/data/registered_metrics.csv")
+
+    def get_software_architecture(self):
+        return "app/data/software_architecture.png"

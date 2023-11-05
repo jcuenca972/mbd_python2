@@ -13,13 +13,13 @@ class MenuView:
         self._radio_placeholder = None
         self._eda_controller = eda_controller
         self._predictions_controller = predictions_controller
-        self._eda_title = "EDA"
-        self._predictions_title = "Predictions"
+        self._eda_title = "Data Analysis"
+        self._predictions_title = "Simulator"
         self._logo = "img/logo.png"
         self._container = st.empty()
         self._radio_key = "radio_key"
         self._ml_controller = ml_controller
-        self._ml_title = "Model Creation"
+        self._ml_title = "Machine Learning"
 
     def show(self):
         st.sidebar.image(self._logo)
