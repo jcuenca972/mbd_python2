@@ -6,7 +6,8 @@ class GeneralView:
         self._main_container = None
 
     def init_container(self, general_container: st):
-        self._main_container = general_container.container()
+        with general_container.container():
+            self._main_container = st.container()
 
     def write_titles(self, title: str, instructions: str):
         with self._main_container:

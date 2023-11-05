@@ -1,4 +1,4 @@
-from app.MLView import MLView
+from app.ml_description.MLView import MLView
 
 class MLController:
 

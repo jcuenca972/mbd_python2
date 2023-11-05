@@ -1,8 +1,8 @@
 import streamlit as st
 from app.data.EDATypes import EDATypes
-from app.EDAController import EDAController
-from app.PredictionsController import PredictionsController
-from app.MLController import MLController
+from app.eda.EDAController import EDAController
+from app.predictions.PredictionsController import PredictionsController
+from app.ml_description.MLController import MLController
 
 class MenuView:
 

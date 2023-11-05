@@ -1,5 +1,5 @@
 from app.GeneralView import GeneralView
-from app.PredictionsModel import PredictionsModel
+from app.predictions.PredictionsModel import PredictionsModel
 
 class PredictionsController:
 

@@ -1,12 +1,12 @@
-from app.MenuView import MenuView
+from app.menu.MenuView import MenuView
 from app.GeneralView import GeneralView
-from app.MenuController import MenuController
-from app.EDAController import EDAController
-from app.PredictionsController import PredictionsController
-from app.EDAModel import EDAModel
-from app.PredictionsModel import PredictionsModel
-from app.MLView import MLView
-from app.MLController import MLController
+from app.menu.MenuController import MenuController
+from app.eda.EDAController import EDAController
+from app.predictions.PredictionsController import PredictionsController
+from app.eda.EDAModel import EDAModel
+from app.predictions.PredictionsModel import PredictionsModel
+from app.ml_description.MLView import MLView
+from app.ml_description.MLController import MLController
 
 # Creation of the App
 if __name__ == "__main__":

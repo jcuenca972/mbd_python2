@@ -1,5 +1,4 @@
-from app.GeneralView import GeneralView
-from app.MenuView import MenuView
+from app.menu.MenuView import MenuView
 
 class MenuController:
 
