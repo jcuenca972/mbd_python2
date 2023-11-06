@@ -1,18 +1,23 @@
 import streamlit as st
 
-class GeneralView:
+class SimulatorView:
 
     def __init__(self):
         self._top_container = None
         self._main_container = None
         self._bottom_container = None
+        self._prediction_container = None
 
     def init_container(self, general_container: st, columns_num=1):
         with general_container.container():
             with st.container():
                 self._top_container = st.container()
-                self._main_container = st.columns(columns_num)
+                st.write("Fill all the values to predict the number of bikes:")
+                with st.form("model_calculation"):
+                    self._main_container = st.columns(columns_num)
+                    is_submitted = st.form_submit_button("Calculate")
                 self._bottom_container = st.container()
+        return is_submitted
 
     def write_titles(self, title: str, instructions: str, num_column=0):
         with self._main_container[num_column]:
@@ -24,6 +29,22 @@ class GeneralView:
             st.title(title)
             if instructions != "":
                 st.header(instructions)
+
+    def show_choose_model(self, keys):
+        with self._top_container:
+            cols = st.columns(2)
+            with cols[0]:
+                model = st.selectbox("Model", keys)
+            with cols[1]:
+                self._prediction_container = st.container()
+            st.divider()
+
+            return model
+
+    def show_prediction(self, label, value):
+        with self._prediction_container:
+            st.write(label)
+            st.write(value)
 
     def write_number_input(self, name, num_column=0):
         with self._main_container[num_column]:

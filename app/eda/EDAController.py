@@ -1,10 +1,10 @@
-from app.GeneralView import GeneralView
+from app.eda.EDAView import EDAView
 from app.eda.EDAModel import EDAModel
 from app.data_models.EDATypes import EDATypes
 
 class EDAController:
 
-    def __init__(self, view: GeneralView, model: EDAModel):
+    def __init__(self, view: EDAView, model: EDAModel):
         self._view = view
         self._model = model
 

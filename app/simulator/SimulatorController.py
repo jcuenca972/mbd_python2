@@ -1,22 +1,25 @@
-from app.GeneralView import GeneralView
+from app.simulator.SimulatorView import SimulatorView
 from app.simulator.SimulatorModel import SimulatorModel
 from app.data_models.BikesInput import BikesInput
 
 
 class SimulatorController:
 
-    def __init__(self, view: GeneralView, model: SimulatorModel):
+    def __init__(self, view: SimulatorView, model: SimulatorModel):
         self._view = view
         self._model = model
         self._bikes_input = BikesInput(0, 0, 0, 0, 0, 0, 0,
                                        0.0, 0.0, 0.0, 0.0)
+        self._ml_selection = None
+        self._is_ml_calculate = False
 
     def show(self, container):
-        self._view.init_container(container, 3)
+        self._is_ml_calculate = self._view.init_container(container, 3)
         self._view.write_titles_top(
             "Simulator",
             ""
         )
+        self._ml_selection = self._view.show_choose_model(self._model.models.keys())
         self._bikes_input.season = self._view.write_selector(
             "Season", 1, 0, "Springer", "Summer", "Fall", "Winter"
         )
@@ -52,10 +55,10 @@ class SimulatorController:
         )
 
         self._view.write_text_bottom("Median History Weather Values")
-        self._view.write_text_bottom(self._model.get_median_conditions(
-            self._bikes_input.season, self._bikes_input.weathersit
-        ))
+        self._view.write_text_bottom(self._model.get_median_conditions())
 
-        self._view.write_header_top(
-            f"Bikes Count Prediction: {self._model.predict_cnt(self._bikes_input)}"
-        )
+        if self._is_ml_calculate:
+            self._view.show_prediction(
+                "Bikes Count Prediction:",
+                f"{self._model.predict_number(self._ml_selection, self._bikes_input)} units"
+            )

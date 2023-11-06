@@ -6,8 +6,8 @@ class EDAModel:
 
     def __init__(self):
         self._bike_data = pd.read_csv("app/data/bike-sharing_hourly.csv")
-        self._bike_data.season = self._bike_data.season.apply(self._code_to_season)
-        self._bike_data.weathersit = self._bike_data.weathersit.apply(self._code_to_weather)
+        self._bike_data.season = self._bike_data.season.apply(self.code_to_season)
+        self._bike_data.weathersit = self._bike_data.weathersit.apply(self.code_to_weather)
         self._bike_data.dteday = pd.to_datetime(self._bike_data.dteday)
         self._bike_data.set_index('dteday', inplace=True)
 
@@ -57,7 +57,7 @@ class EDAModel:
         return fig
 
     @classmethod
-    def _code_to_season(cls, code):
+    def code_to_season(cls, code):
         if code == 1:
             return "Springer"
         elif code == 2:
@@ -68,7 +68,7 @@ class EDAModel:
             return "Winter"
 
     @classmethod
-    def _code_to_weather(cls, code):
+    def code_to_weather(cls, code):
         if code == 1:
             return "Clear"
         elif code == 2:
