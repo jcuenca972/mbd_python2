@@ -1,6 +1,6 @@
 from app.GeneralView import GeneralView
 from app.eda.EDAModel import EDAModel
-from app.data.EDATypes import EDATypes
+from app.data_models.EDATypes import EDATypes
 
 class EDAController:
 

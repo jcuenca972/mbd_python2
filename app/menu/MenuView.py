@@ -1,5 +1,5 @@
 import streamlit as st
-from app.data.EDATypes import EDATypes
+from app.data_models.EDATypes import EDATypes
 from app.eda.EDAController import EDAController
 from app.simulator.SimulatorController import SimulatorController
 from app.ml_description.MLController import MLController
