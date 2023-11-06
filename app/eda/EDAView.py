@@ -10,10 +10,9 @@ class EDAView:
             with st.container():
                 self._main_container = st.container()
 
-    def write_titles(self, title: str, instructions: str):
+    def write_titles(self, title: str):
         with self._main_container:
-            st.title(title)
-            st.header(instructions)
+            st.header(title)
 
     def plotly_show(self, fig):
         with self._main_container:

@@ -13,22 +13,18 @@ class SimulatorView:
             with st.container():
                 self._top_container = st.container()
                 st.write("Fill all the values to predict the number of bikes:")
-                with st.form("model_calculation"):
+                with st.container():
                     self._main_container = st.columns(columns_num)
-                    is_submitted = st.form_submit_button("Calculate")
                 self._bottom_container = st.container()
-        return is_submitted
 
     def write_titles(self, title: str, instructions: str, num_column=0):
         with self._main_container[num_column]:
             st.title(title)
             st.header(instructions)
 
-    def write_titles_top(self, title: str, instructions: str):
+    def write_titles_top(self, title: str):
         with self._top_container:
             st.title(title)
-            if instructions != "":
-                st.header(instructions)
 
     def show_choose_model(self, keys):
         with self._top_container:

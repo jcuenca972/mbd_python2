@@ -10,7 +10,7 @@ class EDAController:
 
     def show(self, container, eda_type: EDATypes):
         self._view.init_container(container)
-        self._view.write_titles("Exploratory Data Analysis", eda_type.value)
+        self._view.write_titles(eda_type.value)
         self._view.plotly_show(self._get_fig(eda_type))
 
     def _get_fig(self, eda_type):

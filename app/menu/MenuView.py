@@ -3,7 +3,9 @@ from app.data_models.EDATypes import EDATypes
 from app.eda.EDAController import EDAController
 from app.simulator.SimulatorController import SimulatorController
 from app.ml_description.MLController import MLController
+from deprecated import deprecated
 
+@deprecated("We are moving to streamlit pages")
 class MenuView:
 
     _eda_charts = dict()

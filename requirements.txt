@@ -6,3 +6,4 @@ streamlit
 astral
 pycaret[full]
 Pillow
+Deprecated

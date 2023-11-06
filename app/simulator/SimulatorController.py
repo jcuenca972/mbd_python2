@@ -11,14 +11,10 @@ class SimulatorController:
         self._bikes_input = BikesInput(0, 0, 0, 0, 0, 0, 0,
                                        0.0, 0.0, 0.0, 0.0)
         self._ml_selection = None
-        self._is_ml_calculate = False
 
     def show(self, container):
-        self._is_ml_calculate = self._view.init_container(container, 3)
-        self._view.write_titles_top(
-            "Simulator",
-            ""
-        )
+        self._view.init_container(container, 3)
+        self._view.write_titles_top("Simulator")
         self._ml_selection = self._view.show_choose_model(self._model.models.keys())
         self._bikes_input.season = self._view.write_selector(
             "Season", 1, 0, "Springer", "Summer", "Fall", "Winter"
@@ -54,11 +50,12 @@ class SimulatorController:
             "Daylight Hours", 2
         )
 
-        self._view.write_text_bottom("Median History Weather Values")
-        self._view.write_text_bottom(self._model.get_median_conditions())
+        self._view.write_text_bottom("Median History Values by Season and Weather Type")
+        self._view.write_text_bottom(self._model.get_median_conditions(
+            self._bikes_input.season, self._bikes_input.weathersit
+        ))
 
-        if self._is_ml_calculate:
-            self._view.show_prediction(
-                "Bikes Count Prediction:",
-                f"{self._model.predict_number(self._ml_selection, self._bikes_input)} units"
-            )
+        self._view.show_prediction(
+            "Bikes Count Prediction:",
+            f"{self._model.predict_number(self._ml_selection, self._bikes_input)} units"
+        )
