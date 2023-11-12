@@ -1,2 +1,3 @@
-# Emogis
-https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/
+# Group 1 Application
+- Root file: 🏡Home
+- Software architecture: MVC
